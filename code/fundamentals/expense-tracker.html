@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+
+        }
+        #output p {
+            text-align: center;
+        }
+        #user-input {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Expense Tracker</h1>
+    <ul>
+        <li onclick="addItemBox()">1. Add Item</li>
+        <li onclick="viewItems()">2. View Expense</li>
+        <li onclick="totalExpense()">3. Total Expense</li>
+    </ul>
+    <div id="user-input"></div>
+    <div id="output"></div>
+    <script>
+        const userInput = document.getElementById("user-input");
+        const output = document.getElementById("output");
+        const items = new Object();
+
+        function addItemBox () {
+            userInput.innerHTML = ` 
+                <table>
+                    <tr>
+                        <td><label for="category">Category</label></td>
+                        <td><input id="category" type="text"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="price">Price</label></td>
+                        <td><input id="price" type="text"></td>
+                    </tr>
+                </table>
+                <button id="addBtn">Add</button>
+                `;
+
+            const addBtn = document.getElementById("addBtn");
+            addBtn.addEventListener("click", () => {
+                const category = document.getElementById("category");
+                const price = document.getElementById("price");
+                items[category.value] = price.value;
+                output.innerHTML += `
+                    <h2>Item added</h2>
+                    <p>${category.value}: ${price.value}</p>
+                `;
+            })
+        }
+        
+
+        function viewItems() {
+            console.log(items);
+        }
+        
+        function totalExpense() {
+            let sum = 0;
+            for(let key in items) {
+                sum += items[key];
+            }
+            console.log(sum);
+        }
+        
+        
+        
+
+    </script>
+</body>
+</html>
