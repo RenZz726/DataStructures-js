@@ -26,3 +26,4 @@ const sum = myReduce(numbers, function (acc, cur) {
 console.log(result);
 console.log(evenNums);
 console.log(sum);
+
