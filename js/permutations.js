@@ -1,6 +1,6 @@
 function getUniquePermutations(str) {
   if (str.length === 1) return [str];
-  const perms = new Set(); // use Set to avoid duplicates
+  const perms = new Set(); 
 
   for (let i = 0; i < str.length; i++) {
     const currentChar = str[i];
@@ -14,3 +14,4 @@ function getUniquePermutations(str) {
 }
 
 console.log(getUniquePermutations("aab"));
+
