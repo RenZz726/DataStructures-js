@@ -3,10 +3,10 @@ class Solution {
     return new Set(nums).size !== nums.length;
   }
 }
-
 const test = new Solution();
-console.log(test.hasDuplicate([1, 3, 5, 6, 6]));
-
+hasDuplicate(nums) {
+    return new Set(nums).size !== nums.length;
+  }
 
 // class Solution {
 //   /**
