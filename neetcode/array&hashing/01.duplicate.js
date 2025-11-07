@@ -4,7 +4,7 @@ class Solution {
   }
 }
 const test = new Solution();
-hasDuplicate(nums) {
+function hasDuplicate(nums) {
     return new Set(nums).size !== nums.length;
   }
 
