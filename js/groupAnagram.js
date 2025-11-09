@@ -9,4 +9,3 @@ function groupAnagram(words) {
 }
 
 console.log(groupAnagram(["eat", "tea", "tan", "ate", "nat", "bat"]));
-

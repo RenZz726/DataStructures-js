@@ -15,4 +15,4 @@ function longestSubString(str) {
   }
   return maxLen;
 }
-console.log(longestSubString("abcabcbb"));
+console.log(longestSubString("abcaabcbb"));

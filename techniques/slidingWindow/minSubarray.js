@@ -1,18 +1,37 @@
-function minSubArray(nums, target) {
-  let minLen = Number.MAX_VALUE;
-  let curSum = 0;
-  let left = 0;
+// function minSubArray(nums, target) {
+//   let minLen = Number.MAX_VALUE;
+//   let curSum = 0;
+//   let left = 0;
 
-  for (let right = 0; right < nums.length; right++) {
-    curSum += nums[right];
-    while (curSum >= target) {
-      if (right - left + 1 < minLen) {
-        minLen = right - left + 1;
-      }
-      curSum -= nums[left];
+//   for (let right = 0; right < nums.length; right++) {
+//     curSum += nums[right];
+//     while (curSum >= target) {
+//       if (right - left + 1 < minLen) {
+//         minLen = right - left + 1;
+//       }
+//       curSum -= nums[left];
+//       left++;
+//     }
+//   }
+//   return minLen;
+// }
+console.log(minSubArray([2, 3, 1, 2, 4, 3], 4));
+
+function minSubArray(arr, k) {
+  let window = new Set();
+  let minLen = Number.MAX_VALUE;
+  let currSum = 0;
+
+  let left = 0;
+  for (let right = 0; right < arr.length; right++) {
+    while (currSum >= k) {
+      minLen = Math.min(minLen, window.size);
+      currSum -= arr[left]
+      window.delete(arr[left]);
       left++;
     }
+    window.add(arr[right]);
+    currSum += arr[right];
   }
   return minLen;
 }
-console.log(minSubArray([2, 3, 1, 2, 4, 3], 4));

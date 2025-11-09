@@ -34,5 +34,23 @@ function findCombinations(digits) {
 
 // console.log(findCombinations("23"));
 
+function combinationsWithSum(arr, k) {
+  const result = [];
 
+  function backtrack(path, sum, start) {
+    if(sum === k && path.length === 3) {
+      console.log("sd");
+      return result.push([...path]);
+    }
+    for(let i = start; i < arr.length;i++) {
+      path.push(arr[i]);
+      backtrack(path, sum + arr[i], i + 1);
+      path.pop();
+    }
+  }
+
+  backtrack([], 0, 0);
+  return result;
+}
+console.log(combinationsWithSum([2, 3, 4, 10, 5, 3], 10))
 

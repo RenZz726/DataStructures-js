@@ -7,7 +7,7 @@ function findSubArray(nums, k) {
   //   let bestEnd = 0;
 
   for (let right = 0; right < nums.length; right++) {
-    while (window.has(nums[right]) || window.size === k) {
+    while (window.size === k) {
       window.delete(nums[left]);
       currSum -= nums[left];
       left++;
