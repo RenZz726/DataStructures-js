@@ -1,7 +1,10 @@
 function generateParenthesis(n) {
   const res = [];
   const backtrack = (path, open, close) => {
-    if (path.length === 2 * n) return res.push(path.join(""));
+    if (path.length === 2 * n) {
+      res.push(path.join(""));
+      return;
+    }
     if (open < n) {
       path.push("(");
       backtrack(path, open + 1, close);
@@ -16,3 +19,5 @@ function generateParenthesis(n) {
   backtrack([], 0, 0);
   return res;
 }
+
+console.log(generateParenthesis(2));

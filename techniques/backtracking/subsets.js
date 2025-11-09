@@ -53,30 +53,14 @@ function combine(n, k) {
 }
 
 // combinations with sum 
-function combinationSum(candidates, target) {
+function combinationSum(arr, target) {
   const res = [];
   const backtrack = (path, sum, start) => {
     if (sum === target) return res.push([...path]);
     if (sum > target) return;
-    for (let i = start; i < candidates.length; i++) {
-      path.push(candidates[i]);
-      backtrack(path, sum + candidates[i], i); // reuse allowed
-      path.pop();
-    }
-  };
-  backtrack([], 0, 0);
-  return res;
-}
-
-// combinations with sum & no duplicate
-function combinationSum(candidates, target) {
-  const res = [];
-  const backtrack = (path, sum, start) => {
-    if (sum === target) return res.push([...path]);
-    if (sum > target) return;
-    for (let i = start; i < candidates.length; i++) {
-      path.push(candidates[i]);
-      backtrack(path, sum + candidates[i], i); // reuse allowed
+    for (let i = start; i < arr.length; i++) {
+      path.push(arr[i]);
+      backtrack(path, sum + arr[i], i); 
       path.pop();
     }
   };
