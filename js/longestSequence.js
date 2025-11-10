@@ -1,19 +1,16 @@
-// Greedy approach
-function longestChain(arr) {
-  const chain = [arr[0]];
+function longestIncreasingSubsequence(arr) {
+  let n = arr.length;
+  let dp = new Array(n).fill(1);
 
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i] > chain[chain.length - 1]) chain.push(arr[i]);
-    else {
-      for (let j = 0; j < chain.length; j++) {
-        if (arr[i] < chain[j]) {
-          chain[j] = arr[i];
-          break;
-        }
+  for (let i = 1; i < n; i++) {
+    for (let j = 0; j < i; j++) {
+      if (arr[j] < arr[i]) {
+        dp[i] = Math.max(dp[i], dp[j] + 1);
       }
     }
   }
-  return chain;
+
+  return Math.max(...dp);
 }
 
-console.log(longestChain([10, 20, 15, 30, 22, 40]));
+console.log(longestIncreasingSubsequence([10, 20, 15, 30, 22, 40]));

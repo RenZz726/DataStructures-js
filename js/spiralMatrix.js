@@ -35,5 +35,4 @@ function generateSpiralMatrix(n) {
 const n = 3;
 const result = generateSpiralMatrix(n);
 
-
 result.forEach((row) => console.log(row.join(" ")));
