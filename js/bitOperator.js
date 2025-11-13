@@ -6,7 +6,7 @@ function findUnique(arr) {
   return unique;
 }
 
-// console.log(findUnique([2, 3, 3, 2, 4])); 
+console.log(findUnique([2, 3, 3, 2, 4])); 
 
 function findMissingNumber(arr) {
   let xorArray = 0;
@@ -23,4 +23,4 @@ function findMissingNumber(arr) {
   return xorArray - xorFull; 
 }
 
-console.log(findMissingNumber([1, 3, 4, 5])); 
+// console.log(findMissingNumber([1, 3, 4, 5])); 
