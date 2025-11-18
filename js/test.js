@@ -19,5 +19,4 @@ function deepClone(obj, parentKey = "", result = {}) {
   }
   return result;
 }
-
 console.log(deepClone({ a: 1, b: { c: 2, d: [ 'e' , 3]  } }));
